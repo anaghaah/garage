@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Razin Garage</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1 class="logo">Razin Garage</h1>
+      <nav>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Your Trusted Automobile Repair & Service Center</h2>
+      <p>We fix everything from engines to tyres — fast, honest, and affordable!</p>
+      <a href="#Appoint" class="btn">Book Appointment</a>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+
+    <div class="container">
+      <h2>Our Services</h2>
+
+      <div class="service-grid">
+
+        <div class="card">
+          <h3>🛠 General Repairs</h3>
+          <p>From oil changes to brake repairs, we handle it all with care.</p>
+        </div>
+
+        <div class="card">
+          <h3>🔧 Engine Diagnostics</h3>
+          <p>We use advanced tools to detect and fix engine issues quickly.</p>
+        </div>
+
+        <div class="card">
+          <h3>🧼 Car Wash & Detailing</h3>
+          <p>Interior and exterior detailing to make your car shine like new.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section light">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>Razin Garage has served the community for over 7 years, providing top-notch auto repair services with a smile. Our certified mechanics are passionate about cars and customer satisfaction.</p>
+    </div>
+  </section>
+
+  <section id="appointment" class="section light">
+
+  <div class="container">
+    <h2 id="Appoint">Book an Appointment</h2>
+
+    <form class="contact-form" id="appointment-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="date" name="date" required />
+
+      <select name="service" required>
+        <option value="" disabled selected>Select a Service</option>
+        <option value="General Repairs">General Repairs</option>
+        <option value="Engine Diagnostics">Engine Diagnostics</option>
+        <option value="Car Wash & Detailing">Car Wash & Detailing</option>
+      </select>
+
+      <textarea name="notes" rows="4" placeholder="Additional Notes (optional)"></textarea>
+      <button type="submit" class="btn">Confirm Booking</button>
+    </form>
+
+    <p id="booking-response" style="text-align:center; margin-top:20px; color:green;"></p>
+  </div>
+  
+</section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Razin Garage. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  document.getElementById('appointment-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const date = form.date.value;
+    const service = form.service.value;
+    const notes = form.notes.value;
+
+    // You can connect this to a backend later
+    console.log("Appointment booked:", { name, phone, email, date, service, notes });
+
+    document.getElementById('booking-response').innerText =
+      `Thank you, ${name}! Your appointment for "${service}" on ${date} has been received.`;
+
+    form.reset();
+  });
+</script>
+</body>
+</html>
